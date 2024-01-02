@@ -1,0 +1,19 @@
+@use "./variables";
+
+@mixin tablet {
+  @media screen and (min-width: variables.$tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: variables.$desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin text-style($size, $line-height, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}

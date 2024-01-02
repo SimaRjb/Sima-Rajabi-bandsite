@@ -1,0 +1,497 @@
+@use "./partials/typography";
+@use "./partials/mixins";
+@use "./partials/variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: AvenirNextLTPro;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+
+//all of the fonts
+h2 {
+  @include mixins.text-style(1.5rem, 2rem, variables.$font-weight-demi);
+  @include mixins.tablet {
+    @include mixins.text-style(2.25rem, 2.75rem, variables.$font-weight-demi);
+  }
+  @include mixins.desktop {
+    @include mixins.text-style(2.25rem, 2.75rem, variables.$font-weight-demi);
+  }
+}
+h3 {
+  @include mixins.text-style(0.875rem, 1.375rem, variables.$font-weight-demi);
+  @include mixins.tablet {
+    @include mixins.text-style(1.5rem, 2rem, variables.$font-weight-demi);
+  }
+  @include mixins.desktop {
+    @include mixins.text-style(1.5rem, 2rem, variables.$font-weight-demi);
+  }
+}
+p {
+  @include mixins.text-style(
+    0.813rem,
+    1.125rem,
+    variables.$font-weight-regular
+  );
+  @include mixins.tablet {
+    @include mixins.text-style(
+      0.875rem,
+      1.375rem,
+      variables.$font-weight-regular
+    );
+  }
+  @include mixins.desktop {
+    @include mixins.text-style(
+      0.875rem,
+      1.375rem,
+      variables.$font-weight-regular
+    );
+  }
+}
+.quote-author {
+  @include mixins.text-style(0.875rem, 1.375rem, variables.$font-weight-demi);
+  @include mixins.tablet {
+    @include mixins.text-style(1.1rem, 1.375rem, variables.$font-weight-demi);
+  }
+  @include mixins.desktop {
+    @include mixins.text-style(1.1rem, 1.375rem, variables.$font-weight-demi);
+  }
+}
+.footer__copy {
+  color: #ffffff;
+  @include mixins.text-style(
+    0.813rem,
+    1.125rem,
+    variables.$font-weight-regular
+  );
+  @include mixins.tablet {
+    @include mixins.text-style(
+      0.875rem,
+      1.25rem,
+      variables.$font-weight-regular
+    );
+  }
+  @include mixins.desktop {
+    @include mixins.text-style(
+      0.875rem,
+      1.25rem,
+      variables.$font-weight-regular
+    );
+  }
+
+  &-title {
+    color: #ffffff;
+    @include mixins.text-style(0.813rem, 1.125rem, variables.$font-weight-demi);
+    @include mixins.tablet {
+      @include mixins.text-style(
+        0.875rem,
+        1.25rem,
+        variables.$font-weight-demi
+      );
+    }
+    @include mixins.desktop {
+      @include mixins.text-style(
+        0.875rem,
+        1.25rem,
+        variables.$font-weight-demi
+      );
+    }
+  }
+}
+
+//styling the rest of the page
+
+//header
+.logo-img {
+  width: 7.5rem; //120px
+  height: 1.25rem; //20 px
+}
+.wrapper-menu {
+  width: 100%;
+  @include mixins.tablet {
+    width: 50%;
+    height: 100%;
+  }
+}
+.wrapper-header {
+  background-color: #323232;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  @include mixins.tablet {
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;
+    margin-left: 2.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 3rem;
+    @include mixins.desktop {
+      margin-left: 9rem;
+    }
+  }
+
+  &__logo {
+    margin-top: 1rem;
+    @include mixins.tablet {
+      margin-top: 0;
+      height: 100%;
+      width: 20%;
+    }
+  }
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    @include mixins.tablet {
+      justify-content: flex-start;
+      gap: 3rem;
+    }
+  }
+  &__item {
+    text-align: center;
+    width: 50%;
+    padding-top: 1rem; //16px
+    padding-bottom: 1rem; //16px
+    @include mixins.tablet {
+      width: 20%;
+    }
+    &--active {
+      border-bottom: solid #ffffff 0.3125rem; //5px
+      @include mixins.tablet {
+        border-bottom: none;
+      }
+    }
+    &:hover {
+      border-bottom: solid #ffffff 0.3125rem; //5px
+      @include mixins.tablet {
+        border-bottom: none;
+      }
+    }
+  }
+  &__nav-item {
+    color: #afafaf;
+    font-size: 1 rem; //24px
+    font-weight: variables.$font-weight-demi;
+    &--active {
+      color: #ffffff;
+      font-size: 1rem; //24px
+      font-weight: variables.$font-weight-bold;
+      @include mixins.tablet {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+        border-bottom: solid #ffffff 5px;
+      }
+      @include mixins.desktop {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+        border-bottom: solid #ffffff 5px;
+      }
+    }
+    &:hover {
+      color: #ffffff;
+      font-size: 1rem; //24px
+      font-weight: variables.$font-weight-bold;
+      @include mixins.tablet {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+        border-bottom: solid #ffffff 5px;
+      }
+      @include mixins.desktop {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+        border-bottom: solid #ffffff 5px;
+      }
+    }
+  }
+}
+
+//hero
+.hero {
+  background-image: url("../assets/Images/hero-bio.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 14.375rem;
+  @include mixins.tablet {
+    background-size: cover;
+    background-position: center;
+    height: 28.125rem;
+  }
+  @include mixins.desktop {
+    background-size: cover;
+    background-position: center;
+    height: 40rem;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #323232;
+    opacity: 0.5;
+  }
+  &__heading {
+    @include mixins.text-style(2.25rem, 2rem, variables.$font-weight-bold);
+    @include mixins.tablet {
+      @include mixins.text-style(3.75rem, 4.25rem, variables.$font-weight-demi);
+    }
+    @include mixins.desktop {
+      @include mixins.text-style(3.75rem, 4.25rem, variables.$font-weight-demi);
+    }
+    color: #ffffff;
+    margin-left: 1rem; //16px
+    z-index: 1;
+    @include mixins.tablet {
+      margin-left: 2.25rem; //36px, based on style guide
+    }
+    @include mixins.desktop {
+      margin-left: 9rem;
+    }
+  }
+}
+
+//about
+.about {
+  &__heading {
+    padding: 1rem 0 0.5rem 1rem;
+    @include mixins.tablet {
+      padding: 1.5rem 0 1rem 2.25rem;
+    }
+    @include mixins.desktop {
+      padding: 1.5rem 0 1rem 9rem;
+    }
+  }
+  &__wrapper-img {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  &__img {
+    padding: 0 1rem;
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    object-position: bottom;
+    @include mixins.tablet {
+      padding: 0 6rem;
+      height: 18rem;
+    }
+    @include mixins.desktop {
+      padding: 0 14rem;
+      height: 31rem;
+    }
+  }
+  &__wrapper-txt {
+    margin: 1rem;
+    @include mixins.tablet {
+      margin: 2rem 6rem;
+    }
+    @include mixins.desktop {
+      margin: 2rem 14rem 3rem 14rem;
+    }
+  }
+  &__wrapper-quote {
+    width: 85%;
+  }
+  &__quote {
+    font-weight: variables.$font-weight-bold;
+  }
+  &__info {
+    @include mixins.tablet {
+      margin-top: 2rem;
+    }
+    @include mixins.tablet {
+      margin-top: 3rem;
+    }
+  }
+  &__wrapper-paragraph {
+    @include mixins.tablet {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+}
+
+//gallery
+.gallery {
+  background-color: #fafafa;
+  &__container {
+    padding: 1rem;
+    @include mixins.tablet {
+      padding-left: 2.25rem;
+      padding-right: 2.25rem;
+      padding-bottom: 2rem;
+    }
+    @include mixins.desktop {
+      padding-left: 9rem;
+      padding-right: 9rem;
+      padding-bottom: 3rem;
+    }
+  }
+  &__img-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include mixins.tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 2rem;
+    }
+    @include mixins.desktop {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 2rem;
+    }
+  }
+  &__img {
+    filter: grayscale(100%);
+    &:hover{
+      filter: grayscale(0%);
+    }
+    @include mixins.tablet {
+      width: calc(33.333% - 2rem);
+    }
+    @include mixins.desktop {
+      width: calc(33.333% - 2rem);
+    }
+  }
+}
+
+//footer
+.social-icon {
+  @include mixins.tablet {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  @include mixins.desktop {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.wrapper-footer {
+  background-color: #323232;
+}
+.footer {
+  padding: 2rem 1rem;
+  @include mixins.tablet {
+    padding: 2rem 2.25rem 2.5rem 2.25rem;
+  }
+  @include mixins.desktop {
+    padding: 2rem 9rem 2.5rem 9rem;
+  }
+  &__email {
+    color: #ffffff;
+  }
+
+  &__header {
+    color: #ffffff;
+    margin-top: 0;
+    @include mixins.tablet {
+      margin-top: 1.868rem; // return to default margin
+    }
+  }
+  &__icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    @include mixins.tablet {
+      align-items: center;
+    }
+  }
+  &__subtitle {
+    margin-top: 1rem;
+  }
+  &-all-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include mixins.tablet {
+      flex-direction: row;
+      gap: 3.901rem;
+    }
+    @include mixins.desktop {
+      flex-direction: row;
+      gap: 3.901rem;
+    }
+  }
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  &__wrapper-logo {
+    margin-top: 4rem;
+  }
+  &__copyright {
+    margin-top: 1rem;
+  }
+  &__logo {
+    //logo for mobile
+    &-mobile {
+      @include mixins.tablet {
+        display: none;
+      }
+      @include mixins.desktop {
+        display: none;
+      }
+    }
+    //logo for tablet
+    &-tablet {
+      display: none;
+      @include mixins.tablet {
+        display: flex;
+        align-items: center;
+      }
+      @include mixins.desktop {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  &__wrapper-social {
+    @include mixins.tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__social {
+    @include mixins.tablet {
+      width: 60%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 3rem;
+    }
+  }
+}

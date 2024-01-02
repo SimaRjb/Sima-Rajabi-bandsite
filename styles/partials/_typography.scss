@@ -1,0 +1,22 @@
+@use "./variables";
+
+@font-face{
+    font-family: "AvenirNextLTPro";
+    src:url("../../assets/Font/AvenirNextLTPro-Regular.otf")format('opentype'), 
+    url("../../assets/Font/Alternative files/AvenirNextLTPro.ttf")format('truetype') ;
+    font-weight: variables.$font-weight-regular;
+}
+
+@font-face{
+    font-family: "AvenirNextLTPro";
+    src:url("../../assets/Font/AvenirNextLTPro-Demi.otf")format('opentype'), 
+    url("../../assets/Font/Alternative files/AvenirNextLTProDemi.ttf")format('truetype') ;
+    font-weight: variables.$font-weight-demi;
+}
+
+@font-face{
+    font-family: "AvenirNextLTPro";
+    src:url("../../assets/Font/AvenirNextLTPro-Bold.otf")format('opentype'), 
+    url("../../assets/Font/Alternative files/AvenirNextLTProBold.ttf")format('truetype') ;
+    font-weight: variables.$font-weight-bold;
+}
