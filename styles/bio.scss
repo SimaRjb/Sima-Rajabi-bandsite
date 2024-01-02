@@ -26,16 +26,10 @@ h2 {
   @include mixins.tablet {
     @include mixins.text-style(2.25rem, 2.75rem, variables.$font-weight-demi);
   }
-  @include mixins.desktop {
-    @include mixins.text-style(2.25rem, 2.75rem, variables.$font-weight-demi);
-  }
 }
 h3 {
   @include mixins.text-style(0.875rem, 1.375rem, variables.$font-weight-demi);
   @include mixins.tablet {
-    @include mixins.text-style(1.5rem, 2rem, variables.$font-weight-demi);
-  }
-  @include mixins.desktop {
     @include mixins.text-style(1.5rem, 2rem, variables.$font-weight-demi);
   }
 }
@@ -52,20 +46,10 @@ p {
       variables.$font-weight-regular
     );
   }
-  @include mixins.desktop {
-    @include mixins.text-style(
-      0.875rem,
-      1.375rem,
-      variables.$font-weight-regular
-    );
-  }
 }
 .quote-author {
   @include mixins.text-style(0.875rem, 1.375rem, variables.$font-weight-demi);
   @include mixins.tablet {
-    @include mixins.text-style(1.1rem, 1.375rem, variables.$font-weight-demi);
-  }
-  @include mixins.desktop {
     @include mixins.text-style(1.1rem, 1.375rem, variables.$font-weight-demi);
   }
 }
@@ -83,25 +67,11 @@ p {
       variables.$font-weight-regular
     );
   }
-  @include mixins.desktop {
-    @include mixins.text-style(
-      0.875rem,
-      1.25rem,
-      variables.$font-weight-regular
-    );
-  }
 
   &-title {
     color: #ffffff;
     @include mixins.text-style(0.813rem, 1.125rem, variables.$font-weight-demi);
     @include mixins.tablet {
-      @include mixins.text-style(
-        0.875rem,
-        1.25rem,
-        variables.$font-weight-demi
-      );
-    }
-    @include mixins.desktop {
       @include mixins.text-style(
         0.875rem,
         1.25rem,
@@ -204,22 +174,12 @@ p {
         padding-bottom: 1.9rem;
         border-bottom: solid #ffffff 5px;
       }
-      @include mixins.desktop {
-        padding-top: 1.9rem;
-        padding-bottom: 1.9rem;
-        border-bottom: solid #ffffff 5px;
-      }
     }
     &:hover {
       color: #ffffff;
       font-size: 1rem; //24px
       font-weight: variables.$font-weight-bold;
       @include mixins.tablet {
-        padding-top: 1.9rem;
-        padding-bottom: 1.9rem;
-        border-bottom: solid #ffffff 5px;
-      }
-      @include mixins.desktop {
         padding-top: 1.9rem;
         padding-bottom: 1.9rem;
         border-bottom: solid #ffffff 5px;
@@ -262,9 +222,6 @@ p {
   &__heading {
     @include mixins.text-style(2.25rem, 2rem, variables.$font-weight-bold);
     @include mixins.tablet {
-      @include mixins.text-style(3.75rem, 4.25rem, variables.$font-weight-demi);
-    }
-    @include mixins.desktop {
       @include mixins.text-style(3.75rem, 4.25rem, variables.$font-weight-demi);
     }
     color: #ffffff;
@@ -367,12 +324,6 @@ p {
       justify-content: flex-start;
       gap: 2rem;
     }
-    @include mixins.desktop {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 2rem;
-    }
   }
   &__img {
     filter: grayscale(100%);
@@ -382,19 +333,12 @@ p {
     @include mixins.tablet {
       width: calc(33.333% - 2rem);
     }
-    @include mixins.desktop {
-      width: calc(33.333% - 2rem);
-    }
   }
 }
 
 //footer
 .social-icon {
   @include mixins.tablet {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  @include mixins.desktop {
     width: 1.5rem;
     height: 1.5rem;
   }
@@ -440,10 +384,6 @@ p {
       flex-direction: row;
       gap: 3.901rem;
     }
-    @include mixins.desktop {
-      flex-direction: row;
-      gap: 3.901rem;
-    }
   }
   &__contact {
     display: flex;
@@ -463,18 +403,14 @@ p {
       @include mixins.tablet {
         display: none;
       }
-      @include mixins.desktop {
-        display: none;
-      }
+      // @include mixins.desktop {
+      //   display: none;
+      // }
     }
     //logo for tablet
     &-tablet {
       display: none;
       @include mixins.tablet {
-        display: flex;
-        align-items: center;
-      }
-      @include mixins.desktop {
         display: flex;
         align-items: center;
       }
