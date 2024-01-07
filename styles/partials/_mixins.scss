@@ -17,3 +17,7 @@
   line-height: $line-height;
   font-weight: $weight;
 }
+
+@mixin add-devider{
+  border-top: 1px solid variables.$mercury;
+}
