@@ -31,7 +31,7 @@
         <h1 class="hero__heading">The Bees Knees</h1>
       </section>
       <section class="about">
-        <h2 class="about__heading">About the Musicians</h2>
+        <h2 class="heading2 about__heading">About the Musicians</h2>
         <div class="about__wrapper-img">
           <img
             class="about__img"
@@ -41,14 +41,17 @@
         </div>
         <div class="about__wrapper-txt">
           <div class="about__wrapper-quote">
-          <h3 class="about__quote">
-            <q
-              >We push each other to be the best. It’s not uncommon for one of
-              us to say ‘this needs to be better, back to the drawing board’</q
-            >
-          </h3>
-        </div>
-          <div class="quote-author">- Bryan Teddy, lead vocalist of The Bees Knees</div>
+            <h3 class="about__quote">
+              <q
+                >We push each other to be the best. It’s not uncommon for one of
+                us to say ‘this needs to be better, back to the drawing
+                board’</q
+              >
+            </h3>
+          </div>
+          <div class="quote-author">
+            - Bryan Teddy, lead vocalist of The Bees Knees
+          </div>
           <article class="about__info">
             <h3>The Bees Knees</h3>
             <div class="about__wrapper-paragraph">
@@ -131,108 +134,228 @@
           </div>
         </div>
       </section>
+
+      <section class="comments">
+        <div class="comments__container">
+          <h2>Join the Conversation</h2>
+          <div class="form__wrapper">
+            <section class="form">
+              <div class="form__avatar">
+                <img
+                  class="form__avatar-img"
+                  src="./assets/Images/Mohan-muruge.jpg"
+                  alt="Mohan-muruge image"
+                />
+              </div>
+              <div class="form__new-comment">
+                <div class="form__new-comment-container">
+                  <div class="form__section">
+                    <label for="userName" class="form__label">NAME</label>
+                    <input
+                      class="form__field form__name"
+                      type="text"
+                      name="userName"
+                      id="userName"
+                      placeholder="Enter your name"
+                      required
+                    />
+                  </div>
+                  <div class="form__section">
+                    <label for="userComment" class="form__label">COMMENT</label>
+                    <textarea
+                      class="form__field form__comment"
+                      id="userComment"
+                      name="userComment"
+                      placeholder="Add a new comment"
+                      cols="30"
+                      rows="3"
+                      minlength="1"
+                      maxlength="300"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="form__button-wrapper">
+                <button class="form__button" type="submit">COMMENT</button>
+              </div>
+              </div>
+            </section>
+          </div>
+          <section class="comments__display">
+            <ul class="comments__list">
+              <li class="comment">
+                <div class="comment__avatar"></div>
+                <div class="comment__content">
+                  <div class="comment__head">
+                    <p class="comment__author">Connor Walton</p>
+                    <div class="comment__head-right">
+                      <p class="comment__date"></p>
+                    </div>
+                  </div>
+                  <div class="comment__text">
+                    <p>
+                      This is art. This is inexplicable magic expressed in the
+                      purest way, everything that makes up this majestic work
+                      deserves reverence. Let us appreciate this for what it is
+                      and what it contains.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="comment">
+                <div class="comment__avatar"></div>
+                <div class="comment__content">
+                  <div class="comment__head">
+                    <p class="comment__author">Emilie Beach</p>
+                    <div class="comment__head-right">
+                      <p class="comment__date"></p>
+                    </div>
+                  </div>
+                  <div class="comment__text">
+                    <p>
+                      I feel blessed to have seen them in person. What a show!
+                      They were just perfection. If there was one day of my life
+                      I could relive, this would be it. What an incredible day.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="comment">
+                <div class="comment__avatar"></div>
+                <div class="comment__content">
+                  <div class="comment__head">
+                    <p class="comment__author">Miles Acosta</p>
+                    <div class="comment__head-right">
+                      <p class="comment__date"></p>
+                    </div>
+                  </div>
+                  <div class="comment__text">
+                    <p>
+                      I can't stop listening. Every time I hear one of their
+                      songs - the vocals - it gives me goosebumps. Shivers
+                      straight down my spine. What a beautiful expression of
+                      creativity. Can't get enough.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </section>
     </main>
     <footer class="wrapper-footer">
       <section class="footer">
         <div class="footer__wrapper-social">
-        <section class="footer__social">
-          <div class="footer__wrapper-header">
-          <h2 class="footer__header">Get in Touch</h2>
-        </div>
-          <div class="footer__icons">
-            <a href="https://instagram.com/">
-              <img class="social-icon"
-                src="./assets/Icons/SVG/Icon-instagram.svg"
-                alt="Instagram Icon"
-              />
-            </a>
-            <a href="https://facebook.com/">
-              <img class="social-icon"
-                src="./assets/Icons/SVG/Icon-facebook.svg"
-                alt="Facebook Icon"
-              />
-            </a>
-            <a href="https://twitter.com/">
-              <img class="social-icon"
-                src="./assets/Icons/SVG/Icon-twitter.svg"
-                alt="Twitter Icon"
-              />
-            </a>
+          <section class="footer__social">
+            <div class="footer__wrapper-header">
+              <h2 class="footer__header">Get in Touch</h2>
+            </div>
+            <div class="footer__icons">
+              <a href="https://instagram.com/">
+                <img
+                  class="social-icon"
+                  src="./assets/Icons/SVG/Icon-instagram.svg"
+                  alt="Instagram Icon"
+                />
+              </a>
+              <a href="https://facebook.com/">
+                <img
+                  class="social-icon"
+                  src="./assets/Icons/SVG/Icon-facebook.svg"
+                  alt="Facebook Icon"
+                />
+              </a>
+              <a href="https://twitter.com/">
+                <img
+                  class="social-icon"
+                  src="./assets/Icons/SVG/Icon-twitter.svg"
+                  alt="Twitter Icon"
+                />
+              </a>
+            </div>
+          </section>
+    <!-- Logo: Displayed for tablet and desktop -->
+    <div class="footer__logo-tablet">
+            <a href="."
+              ><img
+                class="logo-img"
+                src="./assets/Logo/Logo-bandsite.svg"
+                alt=""
+            /></a>
           </div>
-        </section>
-         <!-- Logo: Displayed for tablet and desktop -->
-        <div class="footer__logo-tablet">
-          <a href="."
-            ><img class="logo-img" src="./assets/Logo/Logo-bandsite.svg" alt=""
-          /></a>
         </div>
-      </div>
         <section class="footer__subtitle">
           <section class="footer-all-contacts">
-          <div class="footer__contact">
-            <div class="footer__contact-person">
-              <div class="footer__copy-title">Cam Adams</div>
-              <div class="footer__copy-title">The Bees Knees Management</div>
-            </div>
-            <div class="footer__contact-address">
-              <div class="footer__copy">503 Broadway Penthouse</div>
-              <div class="footer__copy">New York, NY 10012, USA</div>
-            </div>
-            <div class="footer__contact-email">
-              <div class="footer__copy">
-                <a class="footer__email" href="mailto:info@thebeesknees.com"
-                  >info@thebeesknees.com</a
-                >
+            <div class="footer__contact">
+              <div class="footer__contact-person">
+                <div class="footer__copy-title">Cam Adams</div>
+                <div class="footer__copy-title">The Bees Knees Management</div>
+              </div>
+              <div class="footer__contact-address">
+                <div class="footer__copy">503 Broadway Penthouse</div>
+                <div class="footer__copy">New York, NY 10012, USA</div>
+              </div>
+              <div class="footer__contact-email">
+                <div class="footer__copy">
+                  <a class="footer__email" href="mailto:info@thebeesknees.com"
+                    >info@thebeesknees.com</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="footer__contact">
-            <div class="footer__contact-person">
-              <div class="footer__copy-title">Pearl Gregg</div>
-              <div class="footer__copy-title">Limitless Artist Group</div>
-            </div>
-            <div class="footer__contact-address">
-              <div class="footer__copy">Booking Agent for</div>
-              <div class="footer__copy">US / South America / Japan</div>
-            </div>
-            <div class="footer__contact-email">
-              <div class="footer__copy">
-                <a
-                  class="footer__email"
-                  href="mailto:pearl.gregg@limitlessag.com"
-                  >pearl.gregg@limitlessag.com</a
-                >
+            <div class="footer__contact">
+              <div class="footer__contact-person">
+                <div class="footer__copy-title">Pearl Gregg</div>
+                <div class="footer__copy-title">Limitless Artist Group</div>
+              </div>
+              <div class="footer__contact-address">
+                <div class="footer__copy">Booking Agent for</div>
+                <div class="footer__copy">US / South America / Japan</div>
+              </div>
+              <div class="footer__contact-email">
+                <div class="footer__copy">
+                  <a
+                    class="footer__email"
+                    href="mailto:pearl.gregg@limitlessag.com"
+                    >pearl.gregg@limitlessag.com</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-          <div class="footer__contact">
-            <div class="footer__contact-person">
-              <div class="footer__copy-title">Carson Whyte</div>
-              <div class="footer__copy-title">Arch Entertainment</div>
-            </div>
-            <div class="footer__contact-address">
-              <div class="footer__copy">Booking Agent for</div>
-              <div class="footer__copy">UK / EU / AU</div>
-            </div>
-            <div class="footer__contact-email">
-              <div class="footer__copy">
-                <a
-                  class="footer__email"
-                  href="mailto:cwhyte@archentertainment.com"
-                  >cwhyte@archentertainment.com</a
-                >
+            <div class="footer__contact">
+              <div class="footer__contact-person">
+                <div class="footer__copy-title">Carson Whyte</div>
+                <div class="footer__copy-title">Arch Entertainment</div>
+              </div>
+              <div class="footer__contact-address">
+                <div class="footer__copy">Booking Agent for</div>
+                <div class="footer__copy">UK / EU / AU</div>
+              </div>
+              <div class="footer__contact-email">
+                <div class="footer__copy">
+                  <a
+                    class="footer__email"
+                    href="mailto:cwhyte@archentertainment.com"
+                    >cwhyte@archentertainment.com</a
+                  >
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-          <!-- Logo: Displayed for mobile -->
-          <div class="footer__copy footer__wrapper-logo">
+          </section>
+    <!-- Logo: Displayed for mobile -->
+    <div class="footer__copy footer__wrapper-logo">
             <div class="footer__logo-mobile">
               <a href="."
-                ><img class="logo-img" src="./assets/Logo/Logo-bandsite.svg" alt=""
+                ><img
+                  class="logo-img"
+                  src="./assets/Logo/Logo-bandsite.svg"
+                  alt=""
               /></a>
             </div>
-            <div class="footer__copyright">Copyright The Bees Knees © 2021 All Rights Reserved</div>
+            <div class="footer__copyright">
+              Copyright The Bees Knees © 2021 All Rights Reserved
+            </div>
           </div>
         </section>
       </section>

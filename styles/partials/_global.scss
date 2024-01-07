@@ -1,0 +1,21 @@
+@use "./variables";
+@use "./mixins";
+
+button,
+label {
+  @include mixins.text-style(0.625rem, 1.25rem, variables.$font-weight-bold);
+  @include mixins.tablet {
+    font-size: 0.75rem;
+  }
+}
+input,
+textarea {
+  background-color: variables.$alabaster;
+  &::placeholder {
+    color: variables.$bandsite-black;
+  }
+  @include mixins.text-style(0.625rem, 1.25rem, variables.$font-weight-regular);
+  @include mixins.tablet {
+    font-size: 0.75rem;
+  }
+}
