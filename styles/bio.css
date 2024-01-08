@@ -13,6 +13,67 @@
   src: url("../../assets/Font/AvenirNextLTPro-Bold.otf") format("opentype"), url("../../assets/Font/Alternative files/AvenirNextLTProBold.ttf") format("truetype");
   font-weight: 700;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: AvenirNextLTPro;
+  color: #323232;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 48rem) {
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 600;
+  }
+}
+
+h3 {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 48rem) {
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+  }
+}
+
+p {
+  font-size: 0.813rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+@media screen and (min-width: 48rem) {
+  p {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+}
+
 button,
 label {
   font-size: 0.625rem;
@@ -45,6 +106,29 @@ textarea::placeholder {
   textarea {
     font-size: 0.75rem;
   }
+}
+
+button {
+  height: 2.5rem;
+  border-radius: 4px;
+  background-color: #323232;
+  color: #ffffff;
+  width: 100%;
+}
+@media screen and (min-width: 48rem) {
+  button {
+    width: 9.375rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+button:hover {
+  background-color: #000000;
+}
+button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
 }
 
 *,
@@ -589,7 +673,6 @@ p {
 .comment {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
 }
 .comment__avatar {
   border-radius: 50%;
@@ -621,6 +704,7 @@ p {
 }
 .comment__content {
   border-top: 1px solid #e1e1e1;
+  width: 100%;
 }
 
 @media screen and (min-width: 48rem) {

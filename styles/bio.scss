@@ -1,7 +1,7 @@
 @use "./partials/typography";
 @use "./partials/mixins";
 @use "./partials/variables";
-@use "./partials/global";
+@use "./partials/base";
 
 *,
 *::before,
@@ -56,7 +56,7 @@ p {
   }
 }
 .footer__copy {
-  color: #ffffff;
+  color: variables.$white;
   @include mixins.text-style(
     0.813rem,
     1.125rem,
@@ -71,7 +71,7 @@ p {
   }
 
   &-title {
-    color: #ffffff;
+    color: variables.$white;
     @include mixins.text-style(0.813rem, 1.125rem, variables.$font-weight-demi);
     @include mixins.tablet {
       @include mixins.text-style(
@@ -82,7 +82,6 @@ p {
     }
   }
 }
-
 
 //styling the rest of the page
 
@@ -99,7 +98,7 @@ p {
   }
 }
 .wrapper-header {
-  background-color: #323232;
+  background-color: variables.$bandsite-black;
   width: 100%;
   left: 0;
   top: 0;
@@ -152,40 +151,40 @@ p {
       width: 20%;
     }
     &--active {
-      border-bottom: solid #ffffff 0.3125rem; //5px
+      border-bottom: solid variables.$white 0.3125rem; //5px
       @include mixins.tablet {
         border-bottom: none;
       }
     }
     &:hover {
-      border-bottom: solid #ffffff 0.3125rem; //5px
+      border-bottom: solid variables.$white 0.3125rem; //5px
       @include mixins.tablet {
         border-bottom: none;
       }
     }
   }
   &__nav-item {
-    color: #e1e1e1;
+    color: variables.$mercury;
     font-size: 1 rem; //24px
     font-weight: variables.$font-weight-demi;
     &--active {
-      color: #ffffff;
+      color: variables.$white;
       font-size: 1rem; //24px
       font-weight: variables.$font-weight-bold;
       @include mixins.tablet {
         padding-top: 1.9rem;
         padding-bottom: 1.9rem;
-        border-bottom: solid #ffffff 5px;
+        border-bottom: solid variables.$white 5px;
       }
     }
     &:hover {
-      color: #ffffff;
+      color: variables.$white;
       font-size: 1rem; //24px
       font-weight: variables.$font-weight-bold;
       @include mixins.tablet {
         padding-top: 1.9rem;
         padding-bottom: 1.9rem;
-        border-bottom: solid #ffffff 5px;
+        border-bottom: solid variables.$white 5px;
       }
     }
   }
@@ -219,7 +218,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #323232;
+    background-color: variables.$bandsite-black;
     opacity: 0.5;
   }
   &__heading {
@@ -227,7 +226,7 @@ p {
     @include mixins.tablet {
       @include mixins.text-style(3.75rem, 4.25rem, variables.$font-weight-demi);
     }
-    color:#ffffff;
+    color: variables.$white;
     margin-left: 1rem; //16px
     z-index: 1;
     @include mixins.tablet {
@@ -303,7 +302,7 @@ p {
 
 //gallery
 .gallery {
-  background-color: #fafafa;
+  background-color: variables.$alabaster;
   &__container {
     padding: 1rem;
     @include mixins.tablet {
@@ -352,22 +351,21 @@ p {
       padding-right: 9rem;
     }
   }
-  &__display{
-    border-bottom: 1px solid variables.$mercury;;
-    @include mixins.tablet{
+  &__display {
+    border-bottom: 1px solid variables.$mercury;
+    @include mixins.tablet {
       padding-left: 3.75rem;
       padding-right: 3.75rem;
-      }
-      @include mixins.desktop{
-        padding-left: 9rem;
-        padding-right: 9rem;
-      }
+    }
+    @include mixins.desktop {
+      padding-left: 9rem;
+      padding-right: 9rem;
+    }
   }
-  &__list{
+  &__list {
     display: flex;
     flex-direction: column;
   }
-  
 }
 
 .form {
@@ -376,12 +374,12 @@ p {
   // justify-content: space-between;
   box-sizing: border-box;
   gap: 1rem;
-  &__wrapper{
-    @include mixins.tablet{
-    padding-left: 3.75rem;
-    padding-right: 3.75rem;
+  &__wrapper {
+    @include mixins.tablet {
+      padding-left: 3.75rem;
+      padding-right: 3.75rem;
     }
-    @include mixins.desktop{
+    @include mixins.desktop {
       padding-left: 9rem;
       padding-right: 9rem;
     }
@@ -406,7 +404,7 @@ p {
     &-container {
       display: flex;
       flex-direction: column;
-      gap: 1rem
+      gap: 1rem;
     }
   }
   &__section {
@@ -414,7 +412,7 @@ p {
     flex-direction: column;
     gap: 0.25rem;
   }
-  &__label{
+  &__label {
     color: variables.$silver;
   }
   &__field {
@@ -435,7 +433,7 @@ p {
       height: 3rem;
     }
   }
-  &__button{
+  &__button {
     height: 2.5rem;
     border-radius: 4px;
     background-color: variables.$bandsite-black;
@@ -449,51 +447,49 @@ p {
     &:hover {
       background-color: variables.$bandsite-dark;
     }
-    &-wrapper{
+    &-wrapper {
       display: flex;
-      justify-content:flex-end;
+      justify-content: flex-end;
       padding-bottom: 1rem;
     }
   }
 }
 
-.comment{
+.comment {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
-  &__avatar{
+  // justify-content: space-between;
+  &__avatar {
     border-radius: 50%;
     background-color: variables.$mercury;
-      width: 2.25rem;
-      height: 2.25rem;
-      @include mixins.tablet {
-        width: 3rem;
-        height: 3rem;
-      }
-      &-wrapper{
-        padding-top: 0.5rem;
-      }
+    width: 2.25rem;
+    height: 2.25rem;
+    @include mixins.tablet {
+      width: 3rem;
+      height: 3rem;
+    }
+    &-wrapper {
+      padding-top: 0.5rem;
+    }
   }
-  &__head{
+  &__head {
     display: flex;
     justify-content: space-between;
   }
-  &__author{
+  &__author {
     font-weight: variables.$font-weight-demi;
   }
-  &__date{
+  &__date {
     color: variables.$silver;
   }
-  &__par{
+  &__par {
     margin-top: 0px;
   }
-  &__content{
+  &__content {
     @include mixins.add-devider;
-
+    width: 100%;
   }
 }
-
-
 
 // .form__button {
 //   height: 2.5rem;
@@ -524,7 +520,7 @@ p {
   }
 }
 .wrapper-footer {
-  background-color: #323232;
+  background-color: variables.$bandsite-black;
 }
 .footer {
   padding: 2rem 1rem;
@@ -535,11 +531,11 @@ p {
     padding: 2rem 9rem 2.5rem 9rem;
   }
   &__email {
-    color: #ffffff;
+    color: variables.$white;
   }
 
   &__header {
-    color: #ffffff;
+    color: variables.$white;
     margin-top: 0;
     @include mixins.tablet {
       margin-top: 1.868rem; // return to default margin

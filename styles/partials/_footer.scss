@@ -1,0 +1,127 @@
+@use "./typography";
+@use "./mixins";
+@use "./variables";
+@use "./base" as *;
+
+.footer__copy {
+  color: #ffffff;
+  @include mixins.text-style(
+    0.813rem,
+    1.125rem,
+    variables.$font-weight-regular
+  );
+  @include mixins.tablet {
+    @include mixins.text-style(
+      0.875rem,
+      1.25rem,
+      variables.$font-weight-regular
+    );
+  }
+
+  &-title {
+    color: #ffffff;
+    @include mixins.text-style(0.813rem, 1.125rem, variables.$font-weight-demi);
+    @include mixins.tablet {
+      @include mixins.text-style(
+        0.875rem,
+        1.25rem,
+        variables.$font-weight-demi
+      );
+    }
+  }
+}
+//other stylings
+.social-icon {
+  @include mixins.tablet {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+.wrapper-footer {
+  background-color: #323232;
+}
+.footer {
+  padding: 2rem 1rem;
+  @include mixins.tablet {
+    padding: 2rem 2.25rem 2.5rem 2.25rem;
+  }
+  @include mixins.desktop {
+    padding: 2rem 9rem 2.5rem 9rem;
+  }
+  &__email {
+    color: #ffffff;
+  }
+
+  &__header {
+    color: #ffffff;
+    margin-top: 0;
+    @include mixins.tablet {
+      margin-top: 1.868rem; // return to default margin
+    }
+  }
+  &__icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    @include mixins.tablet {
+      align-items: center;
+    }
+  }
+  &__subtitle {
+    margin-top: 1rem;
+  }
+  &-all-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    @include mixins.tablet {
+      flex-direction: row;
+      gap: 3.901rem;
+    }
+  }
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  &__wrapper-logo {
+    margin-top: 4rem;
+  }
+  &__copyright {
+    margin-top: 1rem;
+  }
+  &__logo {
+    //logo for mobile
+    &-mobile {
+      @include mixins.tablet {
+        display: none;
+      }
+      // @include mixins.desktop {
+      //   display: none;
+      // }
+    }
+    //logo for tablet
+    &-tablet {
+      display: none;
+      @include mixins.tablet {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  &__wrapper-social {
+    @include mixins.tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__social {
+    @include mixins.tablet {
+      width: 60%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 3rem;
+    }
+  }
+}

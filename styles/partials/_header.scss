@@ -1,0 +1,109 @@
+@use "./typography";
+@use "./mixins";
+@use "./variables";
+@use "./base" as *;
+
+//header
+.logo-img {
+  width: 7.5rem; //120px
+  height: 1.25rem; //20 px
+}
+.wrapper-menu {
+  width: 100%;
+  @include mixins.tablet {
+    width: 50%;
+    height: 100%;
+  }
+}
+.wrapper-header {
+  background-color: #323232;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  @include mixins.tablet {
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;
+    margin-left: 2.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 3rem;
+    @include mixins.desktop {
+      margin-left: 9rem;
+    }
+  }
+
+  &__logo {
+    margin-top: 1rem;
+    @include mixins.tablet {
+      margin-top: 0;
+      height: 100%;
+      width: 20%;
+    }
+  }
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    @include mixins.tablet {
+      justify-content: flex-start;
+      gap: 3rem;
+    }
+  }
+  &__item {
+    text-align: center;
+    width: 50%;
+    padding-top: 1rem; //16px
+    padding-bottom: 1rem; //16px
+    @include mixins.tablet {
+      width: 20%;
+    }
+    &--active {
+      border-bottom: solid #ffffff 0.3125rem; //5px
+      @include mixins.tablet {
+        border-bottom: none;
+      }
+    }
+    &:hover {
+      border-bottom: solid #ffffff 0.3125rem; //5px
+      @include mixins.tablet {
+        border-bottom: none;
+      }
+    }
+  }
+  &__nav-item {
+    color: #e1e1e1;
+    font-size: 1 rem; //24px
+    font-weight: variables.$font-weight-demi;
+    &--active {
+      color: #ffffff;
+      font-size: 1rem; //24px
+      font-weight: variables.$font-weight-bold;
+      @include mixins.tablet {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+        border-bottom: solid #ffffff 5px;
+      }
+    }
+    &:hover {
+      color: #ffffff;
+      font-size: 1rem; //24px
+      font-weight: variables.$font-weight-bold;
+      @include mixins.tablet {
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+        border-bottom: solid #ffffff 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+@use "./partials/typography";
+@use "./partials/mixins";
+@use "./partials/variables";
+@use "./partials/base" as *;
+@use "./partials/header";
+@use "./partials/footer";
+
+//hero
+.hero {
+  background-image: url("../assets/Images/hero-shows.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  height: 20rem;
+  @include mixins.tablet {
+    background-size: cover;
+    background-position: center;
+    height: 28.125rem;
+  }
+  @include mixins.desktop {
+    background-size: cover;
+    background-position: center;
+    height: 40rem;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #323232;
+    opacity: 0.5;
+  }
+  &__content {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__heading {
+    @include mixins.text-style(2.25rem, 2rem, variables.$font-weight-bold);
+    @include mixins.tablet {
+      @include mixins.text-style(3.75rem, 4.25rem, variables.$font-weight-demi);
+    }
+    // color:#ffffff;
+    margin-left: 1rem; //16px
+    // z-index: 1;
+    @include mixins.tablet {
+      margin-left: 2.25rem; //36px, based on style guide
+    }
+    @include mixins.desktop {
+      margin-left: 9rem;
+    }
+  }
+  &__text {
+    color: variables.$white;
+    z-index: 1;
+  }
+}
+
+//soundcloud song
+iframe {
+  width: 100%;
+  height: 10rem;
+  border: 0; // Updated to border
+}
+
+.soundcloud-info {
+  font-size: 10px;
+  color: #cccccc;
+  line-break: anywhere;
+  word-break: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+    Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+}
+
+.soundcloud-link {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+//shows
+.shows {
+  &__wrapper {
+    margin: 2rem 1rem 1rem 1rem;
+  }
+}
+.table {
+  display: flex;
+  width: 100%;
+  // justify-content: space-between;
+  @include mixins.tablet {
+    flex-direction: column;
+  }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 2rem;
+    &-item {
+      width: 25%;
+      @include mixins.text-style(
+        0.813rem,
+        1.125rem,
+        variables.$font-weight-bold
+      );
+      @include mixins.tablet {
+        @include mixins.text-style(
+          0.875rem,
+          1.375rem,
+          variables.$font-weight-regular
+        );
+      }
+    }
+  }
+  &__header {
+    text-transform: uppercase;
+    color: variables.$silver;
+    @include mixins.text-style(0.813rem, 1.125rem, variables.$font-weight-bold);
+    @include mixins.tablet {
+      @include mixins.text-style(
+        0.875rem,
+        1.375rem,
+        variables.$font-weight-bold
+      );
+    }
+    &-item {
+      width: 24.5%;
+    }
+  }
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/bio.css" />
+    <script src="./scripts/index-page.js" defer></script>
     <title>Band Site</title>
   </head>
   <body>
@@ -20,7 +21,7 @@
               <a class="header__nav-item--active" href=".">Biography</a>
             </li>
             <li class="header__item">
-              <a class="header__nav-item" href=".">Shows</a>
+              <a class="header__nav-item" href="./pages/shows.html">Shows</a>
             </li>
           </ul>
         </div>
@@ -139,7 +140,7 @@
         <div class="comments__container">
           <h2>Join the Conversation</h2>
           <div class="form__wrapper">
-            <section class="form">
+            <form class="form" id="comment-form">
               <div class="form__avatar">
                 <img
                   class="form__avatar-img"
@@ -179,11 +180,11 @@
                   <button class="form__button" type="submit">COMMENT</button>
                 </div>
               </div>
-            </section>
+            </form>
           </div>
           <section class="comments__display">
             <ul class="comments__list">
-              <li class="comment">
+              <!-- <li class="comment">
                 <div class="comment__avatar-wrapper">
                   <div class="comment__avatar"></div>
                 </div>
@@ -244,7 +245,7 @@
                     </p>
                   </div>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </section>
         </div>
