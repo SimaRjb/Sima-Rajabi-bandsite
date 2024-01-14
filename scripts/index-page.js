@@ -1,22 +1,48 @@
-const commentsArray = [
-  {
-    name: "Connor Walton",
-    timestamp: "02/17/2021",
-    text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    timestamp: "01/09/2021",
-    text: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    timestamp: "12/20/2020",
-    text: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+import BandSiteApi, { apiKey, baseUrl } from './band-site-api.js';
+const bandSiteApi = new BandSiteApi(apiKey);
 
-// Function to create a comment element
+const formatTimeAgo = (timestamp) => {
+  const currentDate = new Date();
+  const commentDate = new Date(timestamp);
+
+  const timeDifference = currentDate - commentDate;
+  const seconds = Math.floor(timeDifference / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+  const months = Math.floor(days / 30);
+  const years = Math.floor(days / 365);
+
+  if (seconds < 60) {
+    return seconds + (seconds === 1 ? " second ago" : " seconds ago");
+  } else if (minutes < 60) {
+    return minutes + (minutes === 1 ? " minute ago" : " minutes ago");
+  } else if (hours < 24) {
+    return hours + (hours === 1 ? " hour ago" : " hours ago");
+  } else if (days < 30) {
+    return days + (days === 1 ? " day ago" : " days ago");
+  } else if (months < 12) {
+    return months + (months === 1 ? " month ago" : " months ago");
+  } else {
+    return years + (years === 1 ? " year ago" : " years ago");
+  }
+};
+
+const postNewComment = async(commentPosted) =>{
+  const addedComment = await bandSiteApi.postComment(commentPosted);
+}
+
+const fetchDefaultComments = (async () =>{
+  const comments = await bandSiteApi.getComments();
+  const defaultComments = comments.splice(-3);
+  return defaultComments;
+});
+
+const fetchAllComments = (async () =>{
+  const comments = await bandSiteApi.getComments();
+  return comments;
+});
+
 const createCommentElement = (comment) => {
   const commentElement = document.createElement("li");
   commentElement.classList.add("comment");
@@ -43,7 +69,7 @@ const createCommentElement = (comment) => {
   headRight.classList.add("comment__head-right");
   const date = document.createElement("p");
   date.classList.add("comment__date");
-  date.textContent = comment.timestamp;
+  date.textContent = formatTimeAgo(comment.timestamp);
   headRight.appendChild(date);
   head.appendChild(author);
   head.appendChild(headRight);
@@ -54,7 +80,7 @@ const createCommentElement = (comment) => {
   text.classList.add("comment__text");
   const paragraph = document.createElement("p");
   paragraph.classList.add("comment__par");
-  paragraph.textContent = comment.text;
+  paragraph.textContent = comment.comment;
   text.appendChild(paragraph);
   content.appendChild(text);
 
@@ -63,12 +89,21 @@ const createCommentElement = (comment) => {
   return commentElement;
 };
 
-// Function to render all comments on the page
-const renderComments = () => {
+// const renderThreeDefaultComments = async () => {
+//   const commentsList = document.querySelector(".comments__list");
+//   commentsList.innerHTML = ""; // Clear existing comments
+//   const defaultComments = await fetchDefaultComments();
+//   defaultComments.forEach((comment) => {
+//     const commentElement = createCommentElement(comment);
+//     commentsList.appendChild(commentElement);
+//   });
+// };
+
+const renderAllComments = async () => {
   const commentsList = document.querySelector(".comments__list");
   commentsList.innerHTML = ""; // Clear existing comments
-
-  commentsArray.forEach((comment) => {
+  const comments = await fetchAllComments();
+  comments.forEach((comment) => {
     const commentElement = createCommentElement(comment);
     commentsList.appendChild(commentElement);
   });
@@ -77,26 +112,43 @@ const renderComments = () => {
 // Event listener for form submission
 const form = document.getElementById("comment-form");
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", async function (event) {
   event.preventDefault(); // Prevent page reload
 
   const userName = document.querySelector(".form__name").value;
-
   const userComment = document.querySelector(".form__comment").value;
-  const timestamp = new Date().toLocaleDateString(); // Use the current date as timestamp
 
   // Construct a new comment object
-  const newComment = { name: userName, timestamp, text: userComment };
+  const newComment = { name: userName, comment: userComment };
 
-  // Push the new comment to the array
-  commentsArray.unshift(newComment);
+  await postNewComment(newComment);
+
   // Clear input fields
   document.querySelector(".form__name").value = "";
   document.querySelector(".form__comment").value = "";
 
-  // Re-render all comments on the page
-  renderComments();
+  // Render the new comment on the page
+  await renderNewComment();
 });
 
+
+// A function to fetch a single new comment
+const fetchNewComment = async () => {
+  const comments = await fetchAllComments();
+  return comments[0]; // Assuming the latest comment is at index 0
+};
+
+// A rendering function for a single new comment
+const renderNewComment = async () => {
+  const commentsList = document.querySelector(".comments__list");
+  const newComment = await fetchNewComment();
+  const commentElement = createCommentElement(newComment);
+
+  // Prepend the new comment to the existing list
+  commentsList.insertBefore(commentElement, commentsList.firstChild);
+};
+
 // Initial rendering of default comments
-renderComments();
+(async () => {
+  await renderAllComments();
+})();
