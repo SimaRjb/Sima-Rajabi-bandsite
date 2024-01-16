@@ -48,9 +48,26 @@ class BandSiteApi {
       console.error(error.message);
     }
   };
+
+  getShows = async() => {
+    try {
+      const url = `${this.baseUrl}/showdates?api_key=${this.apiKey}`;
+      const response = await axios.get(url);
+      const showsArr = response.data;
+      // Filter out invalid or unexpected showdates
+      const validShows = showsArr.filter(
+        (show) =>
+        show.id && show.date && show.place && show.location
+      );
+
+      return validShows;
+    } catch (error) {
+      console.error(error.message);
+      return [];
+    }
+  }
 }
 
-// export default BandSiteApi;
 export { BandSiteApi as default, apiKey, baseUrl };
 
 

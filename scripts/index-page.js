@@ -89,15 +89,16 @@ const createCommentElement = (comment) => {
   return commentElement;
 };
 
-// const renderThreeDefaultComments = async () => {
-//   const commentsList = document.querySelector(".comments__list");
-//   commentsList.innerHTML = ""; // Clear existing comments
-//   const defaultComments = await fetchDefaultComments();
-//   defaultComments.forEach((comment) => {
-//     const commentElement = createCommentElement(comment);
-//     commentsList.appendChild(commentElement);
-//   });
-// };
+//haven't used it. but it maybe necessary for any furthur updates on the project
+const renderThreeDefaultComments = async () => {
+  const commentsList = document.querySelector(".comments__list");
+  commentsList.innerHTML = ""; // Clear existing comments
+  const defaultComments = await fetchDefaultComments();
+  defaultComments.forEach((comment) => {
+    const commentElement = createCommentElement(comment);
+    commentsList.appendChild(commentElement);
+  });
+};
 
 const renderAllComments = async () => {
   const commentsList = document.querySelector(".comments__list");

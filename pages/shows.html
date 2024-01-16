@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/shows.css" />
-    <script src="../scripts/build-shows-page.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="../scripts/build-shows-page.js" defer></script>
     <title>Band Site Shows</title>
   </head>
   <body>
@@ -30,18 +31,26 @@
         </div>
       </nav>
     </header>
+
     <main>
       <section class="hero">
         <div class="hero__content">
           <div class="hero__text">
-            <h3 class="hero__title">Beautiful Beast Album</h3>
-            <h1 class="hero__heading">Queen of Yellow x For the String</h1>
+            <div class="hero__title-wrapper">
+              <h3 class="hero__title hero__shows-h3">Beautiful Beast Album</h3>
+            </div>
+            <div class="hero__heading-wrapper">
+              <h1 class="hero__heading">Queen of Yellow x For the String</h1>
+            </div>
           </div>
           <section class="hero__sound">
             <div class="hero__sound-content">
+              <!-- <iframe
+                allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/854978179&co[…]ow_user=true&show_reposts=false&show_teaser=true&visual=true"
+              ></iframe> -->
+
               <iframe
-                width="100%"
-                height="300"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1698878220&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
                 scrolling="no"
                 frameborder="0"
@@ -68,6 +77,15 @@
               </div>
             </div>
           </section>
+        </div>
+      </section>
+
+      <section class="shows">
+        <div class="shows__content">
+          <div class="shows__header-wrapper">
+            <h3 class="shows__header">Shows</h3>
+          </div>
+          <!-- DOM goes here -->
         </div>
       </section>
     </main>

@@ -48,13 +48,38 @@ p {
   }
 }
 
-button,
+button {
+  text-transform: uppercase;
+  @include mixins.text-style(0.625rem, 1.25rem, variables.$font-weight-bold);
+  @include mixins.tablet {
+    font-size: 0.75rem;
+  }
+}
+
+button{
+  text-transform: uppercase;
+  height: 2.5rem;
+  border-radius: 4px;
+  background-color: variables.$bandsite-black;
+  color: variables.$white;
+  width: 100%;
+  @include mixins.tablet {
+    // width: 9.375rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  &:hover {
+    background-color: variables.$bandsite-dark;
+  }
+}
+
 label {
   @include mixins.text-style(0.625rem, 1.25rem, variables.$font-weight-bold);
   @include mixins.tablet {
     font-size: 0.75rem;
   }
 }
+
 input,
 textarea {
   background-color: variables.$alabaster;

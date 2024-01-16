@@ -1,100 +1,97 @@
-// Function to create a table header row
-function createTableHeader() {
-  const header = document.createElement("div");
-  header.classList.add("table__header");
+import BandSiteApi, { apiKey, baseUrl } from "./band-site-api.js";
+const bandSiteApiShows = new BandSiteApi(apiKey);
 
-  const row = document.createElement("ul");
-  row.classList.add("label-btn", "table__row");
+const showsSection = document.querySelector('.shows__content');
 
-  const labels = ["Date", "Venue", "Location"];
-  labels.forEach((label) => {
-    if (label !== "") {
-      const li = document.createElement("li");
-      li.textContent = label;
-      li.classList.add("table__header-item");
-      row.appendChild(li);
-    }
+const formatTimestamp = (timestamp) => {
+  const date = new Date(timestamp);
+  const options = { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' };
+  return date.toLocaleDateString('en-US', options).replace(/\s/g, ' ');
+};
+
+const createShowElement = (show) => {
+  const info = document.createElement('div');
+  info.classList.add('schedule__info');
+
+  show.forEach((showItem, index) => {
+    const showUl = document.createElement('ul');
+    showUl.classList.add('schedule__show');
+
+    const createLi = (headerText, dataText) => {
+      const li = document.createElement('li');
+      li.classList.add('schedule__row', `schedule__${headerText.toLowerCase()}`);
+
+      const headerMobile = document.createElement('div');
+      headerMobile.classList.add('schedule__header', 'schedule__header-mobile', `schedule__${headerText.toLowerCase()}-header-mobile`);
+      headerMobile.textContent = headerText;
+      
+      let headerTablet;
+      if(index===0){
+      headerTablet = document.createElement('div');
+      headerTablet.classList.add('schedule__header', 'schedule__header-tablet');
+      headerTablet.textContent = headerText;
+      li.appendChild(headerTablet);
+      }
+
+      const data = document.createElement('div');
+      data.classList.add('schedule__data', `schedule__${headerText.toLowerCase()}-detail`);
+      data.textContent = dataText;
+
+      li.appendChild(headerMobile);
+      // li.appendChild(headerTablet);
+      li.appendChild(data);
+
+      return li;
+    };
+
+    showUl.appendChild(createLi('DATE', formatTimestamp(showItem.date)));
+    showUl.appendChild(createLi('VENUE', showItem.place));
+    showUl.appendChild(createLi('LOCATION', showItem.location));
+
+    const btnLi = document.createElement('li');
+    btnLi.classList.add('schedule__row', 'schedule__btn', 'schedule__btn-first-row');
+
+    const button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    button.textContent = 'Buy Tickets';
+
+    btnLi.appendChild(button);
+
+    showUl.appendChild(btnLi);
+    info.appendChild(showUl);
+    showUl.addEventListener('click', () => {
+      // Remove 'schedule__show-active' class from all 'ul' elements
+      const allShowElements = document.querySelectorAll('.schedule__show');
+      allShowElements.forEach((element) => {
+        element.classList.remove('schedule__show-active');
+      });
+
+      // Add 'schedule__show-active' class to the clicked 'ul' element
+      showUl.classList.add('schedule__show-active');
+    });
   });
 
-  header.appendChild(row);
-  return header;
-}
+  return info;
+};
 
-// Function to create a table row with data
-function createTableRow(date, venue, city) {
-  const row = document.createElement("ul");
-  row.classList.add("table__row");
+const renderShows = async () => {
+  try {
+    const showsData = await bandSiteApiShows.getShows();
 
-  const data = [date, venue, city];
+    const showContainer = document.createElement('div');
+    showContainer.classList.add('schedule');
 
-  data.forEach((value, index) => {
-    const li = document.createElement("li");
-    li.setAttribute(
-      "data-label",
-      index === 0 ? "date" : index === 1 ? "venue" : "city"
-    );
-    li.classList.add("table__row-item");
-    li.textContent = value;
-    row.appendChild(li);
-  });
+    const infoWrapper = document.createElement('div');
+    infoWrapper.classList.add('schedule__info-wrapper');
 
-  const buttonLi = document.createElement("li");
-  const button = document.createElement("button");
-  button.classList.add("btn");
-  button.textContent = "BUY TICKETS";
-  buttonLi.appendChild(button);
-  row.appendChild(buttonLi);
+    const showElement = createShowElement(showsData);
+    infoWrapper.appendChild(showElement);
 
-  return row;
-}
+    showContainer.appendChild(infoWrapper);
+    showsSection.appendChild(showContainer);
+  } catch (error) {
+    console.error('Error fetching and rendering shows:', error.message);
+  }
+};
 
-// Function to create the entire shows section
-function createShowsSection() {
-  const showsSection = document.createElement("section");
-  showsSection.classList.add("shows");
-
-  const wrapper = document.createElement("div");
-  wrapper.classList.add("shows__wrapper");
-
-  const header = document.createElement("div");
-  header.classList.add("shows__header");
-
-  const h2 = document.createElement("h2");
-  h2.textContent = "Shows";
-  header.appendChild(h2);
-
-  const scheduleSection = document.createElement("section");
-  scheduleSection.classList.add("table", "shows__schedule");
-
-  const tableHeader = createTableHeader();
-  scheduleSection.appendChild(tableHeader);
-
-  const tableBody = document.createElement("div");
-  tableBody.classList.add("table__body");
-
-  const showsData = [
-    ["Mon Sept 60 2021", "Ronald Lance", "San Fransisco"],
-    ["Tue Sept 21 2021", "Pier 3 East", "San Fransisco"],
-    ["Fri Oct 15 2021", "View Lounge", "San Fransisco"],
-    ["Sat Nov 06 2021", "Hyatt Agency", "San Fransisco"],
-    ["Fri Nov 26 2021", "Moscow Center", "San Fransisco"],
-    ["Wed Dec 15 2021", "Press Club", "San Fransisco"],
-  ];
-
-  showsData.forEach((data) => {
-    const row = createTableRow(...data);
-    tableBody.appendChild(row);
-  });
-
-  scheduleSection.appendChild(tableBody);
-
-  wrapper.appendChild(header);
-  wrapper.appendChild(scheduleSection);
-  showsSection.appendChild(wrapper);
-
-  return showsSection;
-}
-
-// Append the shows section to main
-const mainElement = document.querySelector("main");
-mainElement.appendChild(createShowsSection());
+renderShows();
